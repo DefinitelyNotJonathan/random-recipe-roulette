@@ -5,6 +5,7 @@ import Landing from './Landing/Landing'
 import Signup from './Signup/Signup'
 import Login from './Login/Login'
 import HomePage from './HomePage/Homepage'
+import NewRecipe from './NewRecipe/newRecipe'
 
 class App extends Component {
 
@@ -15,6 +16,7 @@ class App extends Component {
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/homepage" component={HomePage}/>
+        <Route path="/newrecipe" component={NewRecipe}/>
       </Route>
     )
   }

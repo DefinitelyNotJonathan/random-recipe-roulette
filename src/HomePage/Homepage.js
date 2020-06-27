@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import HomeNav from '../HomeNav/HomeNav'
 
 export default class Login extends React.Component {
@@ -19,7 +20,7 @@ export default class Login extends React.Component {
                     <li>Raw Toast</li>
                 </ul>
                 <h2>Get A New Recipe!!!</h2>
-                <button>Go!</button>
+                <Link to="/newrecipe">Go!</Link>
             </div>
         )
     }

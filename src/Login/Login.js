@@ -15,7 +15,7 @@ export default class Login extends React.Component {
                     <input className="email"></input>
                     <label htmlFor="password">PASSWORD</label>
                     <input className="password"></input>
-                    <Link to="/HomePage">LOGIN</Link>
+                    <Link to="/homepage">LOGIN</Link>
                 </form>
                 <Link to="/signup">SIGN UP FOR AN ACCOUNT</Link>
             </div>
