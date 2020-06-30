@@ -6,35 +6,53 @@ import Signup from './Signup/Signup'
 import Login from './Login/Login'
 import HomePage from './HomePage/Homepage'
 import NewRecipe from './NewRecipe/newRecipe'
-
+import ApiContext from './ApiContext'
 class App extends Component {
+
+  state={
+    user: {},
+    ingredients: []
+  }
 
   renderMainRoutes() {
     return (
       <Route>
-        <Route exact path="/" component={Landing}/>
+        <Route exact path="/" component={HomePage}/>
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup}/>
-        <Route path="/homepage" component={HomePage}/>
         <Route path="/newrecipe" component={NewRecipe}/>
       </Route>
     )
   }
 
+
   render(){
-    return(
-      <div>
-        <header>
-          <h1>
-            Random Recipes!
-          </h1>
-        </header>
-        <ErrorBoundary>
-          <main>{this.renderMainRoutes()}</main>
-        </ErrorBoundary>
-      </div>
-    );
-  }
+    const value ={
+      user: this.state.user,
+      setUser:(user) => {
+        this.setState({ user: user});
+      },
+      ingredients: this.state.ingredients,
+      setIngredients:(ingredients) => {
+        this.setState({ ingredients: ingredients});
+      }
+    }
+    return (
+      <ApiContext.Provider value={value}>
+        <div className="App">
+          <header className="App__header">
+            <h1>
+              Random Recipes!
+            </h1>
+          </header>
+          <ErrorBoundary errorMessage='could not display MainRoutes'>
+            <main className="App__main">{this.renderMainRoutes()}
+            </main>
+          </ErrorBoundary>
+
+        </div>
+      </ApiContext.Provider>
+    );  }
 }
 
 export default App;

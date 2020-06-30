@@ -1,52 +1,142 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import config from '../config'
+import ApiContext from '../ApiContext'
 
 export default class NewRecipe extends React.Component{
 
+    static contextType=ApiContext
+
+    constructor(props){
+        super(props)
+        this.state={
+            names: {},
+            recipe: {
+                id: null,
+                name: null,
+                source: null,
+                preptime: null,
+                waittime: null,
+                cooktime: null,
+                servings: null,
+                comments: null,
+                calories: null,
+                carbs: null,
+                fat: null,
+                fiber: null,
+                ingredients: [],
+                instructions: [],
+                protein: null,
+                satfat: null,
+                sugar: null,
+                tags: null
+            }
+        }
+        this.getNewRecipe = this.getNewRecipe.bind(this)
+    }
+
     componentDidMount(){
         console.log('NewRecipe did mount');
+        fetch(`${config.API_ENDPOINT}/api/recipes/names`, {
+            credentials: 'include'
+          })
+            .then(response => {
+                if (response.status === 403) {
+                    this.setState({
+                      toLogin: true
+                    })
+                }
+                else{return response.json()}
+            })
+            // .then(res => res.json()) 
+            .then(data => {
+                console.log('data')
+                console.log(data)
+                this.setState({
+                    names: data
+                })
+                console.log('this.state.names[1]')
+                console.log(this.state.names)
+                this.getNewRecipe();   
+            }) 
+       
+    }
+
+    getNewRecipe(e){
+        let keys= Object.keys(this.state.names)
+        let randomNumber = Math.floor(Math.random() * (keys.length)) + 1;
+        let randomString = String(randomNumber)
+        fetch(`${config.API_ENDPOINT}/api/recipes/random/` + randomString, {
+            credentials:'include'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('randomNumber fetch data')
+            console.log(data)
+            if(data.ingredients){
+                data.ingredients=this.prepIngredients(data.ingredients)
+            }
+            if(data.instructions){
+                data.instructions=this.prepInstructions(data.instructions)
+            }
+            this.setState({
+                recipe: data
+            })
+            console.log('this.state.recipe')
+            console.log(this.state.recipe)
+        })
+    }
+
+    prepIngredients(input){
+        return input.split('--')
+    }
+
+    prepInstructions(input){
+        return input.split('\r\n\r\n')
     }
 
     render(){
+
+        let ingredients = this.state.recipe.ingredients;
+        let instructions = this.state.recipe.instructions;
+        console.log(ingredients);
         return(
             <div>
                 <h1>Your New Recipe!</h1>
-                <h2>Name: Baked Shrimp Scampi</h2>
+                <h2>Name: {this.state.recipe.name}</h2>
+                <h2>Servings: {this.state.recipe.servings}</h2>
                 <h2>Ingredients:</h2>
                 <ul>
-                    <li>2/3 cup panko</li>
-                    <li>1/4 teaspoon red pepper flakes</li>
-                    <li>1/2 lemon, zested and juiced</li>
-                    <li>1 extra-large egg yolk</li>
-                    <li>1 teaspoon rosemary, minced</li>
-                    <li>3 tablespoon parsely, minced</li>
-                    <li>4 cloves garlic, minced</li>
-                    <li>1/4 cup shallots, minced</li>
-                    <li>8 tablespoon unsalted butter, at room temperature</li>
-                    <li>2 tablespoon dry white wine</li>
-                    <li>Freshly ground black pepper</li>
-                    <li>Kosher salt</li>
-                    <li>3 tablespoon olive oil</li>
-                    <li>2 pounds frozen shrimp</li>
+                    {
+                        ingredients.map((ingredient, i) => (
+                            <li key={i}>{ingredient} </li>
+                        ))
+                    }
+
                 </ul>
                 <h2>Cooking Instructions:</h2>
                 <ul>
-                    <li>
-                    Preheat the oven to 425 degrees F.
-                    </li>
-                    <li>
-                    Defrost shrimp by putting in cold water, drain. Place the shrimp in serving dish (9x13 or 2 quart casserole) and toss gently with the olive oil, wine, 1 teaspoons salt, and 1 teaspoon pepper. Allow to sit at room temperature while you make the butter and garlic mixture.
-                    </li>
-                    <li>
-                    In a small bowl, mash the softened butter with the garlic, shallots, parsley, rosemary, red pepper flakes, lemon zest, lemon juice, egg yolk, panko, 1\/2 teaspoon salt, and 1\/4 teaspoon of pepper until combined.
-                    </li>
-                    <li>
-                    Spread the butter mixture evenly over the shrimp. Bake for 10 to 12 minutes until hot and bubbly. If you like the top browned, place under a broiler for 1-3 minutes (keep an eye on it). Serve with lemon wedges and French bread.
-                    </li>
+                    {
+                        instructions.map((instructions, i) => (
+                            <li key={i}>{instructions}</li>
+                        ))
+                    }
                 </ul>
                 <h2>Notes:</h2>
-                <p>If using fresh shrimp, arrange for presentation. Starting from the outer edge of a 14-inch oval gratin dish, arrange the shrimp in a single layer cut side down with the tails curling up and towards the center of the dish. Pour the remaining marinade over the shrimp.</p>
-                <Link to="/HomePage">Go Back</Link>
+                <p>{this.state.recipe.comments}</p>
+                <h2>Nutritional Information:</h2>
+                <ul>
+                    <li>Calories: {this.state.recipe.calories}</li>
+                    <li>Fat: {this.state.recipe.fat}</li>
+                    <li>Saturated Fat: {this.state.recipe.satfat}</li>
+                    <li>Carbs: {this.state.recipe.carbs}</li>
+                    <li>Fiber: {this.state.recipe.fiber}</li>
+                    <li>Sugar: {this.state.recipe.sugar}</li>
+                    <li>Protein: {this.state.recipe.protein}</li>
+                </ul>
+                <button onClick={this.getNewRecipe}>Get A New Recipe!</button>
+
+                <Link to="/">Go Back</Link>
             </div>
         )
     }
