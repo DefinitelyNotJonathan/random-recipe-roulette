@@ -101,42 +101,42 @@ export default class NewRecipe extends React.Component{
         let instructions = this.state.recipe.instructions;
         console.log(ingredients);
         return(
-            <div>
-                <h1>Your New Recipe!</h1>
-                <h2>Name: {this.state.recipe.name}</h2>
-                <h2>Servings: {this.state.recipe.servings}</h2>
-                <h2>Ingredients:</h2>
-                <ul>
+            <div className="NewRecipe_Container">
+                <h1 className="NewRecipe_Header">Your New Recipe!</h1>
+                <h2 className="NewRecipe_Name">Name: {this.state.recipe.name}</h2>
+                <h2 className="NewRecipe_Servings">Servings: {this.state.recipe.servings}</h2>
+                <h2 className="NewRecipe_Ingredients_Header">Ingredients:</h2>
+                <ul className="NewRecipe_Ingredients_UL">
                     {
                         ingredients.map((ingredient, i) => (
-                            <li key={i}>{ingredient} </li>
+                            <li key={i} className="NewRecipe_Ingredients_LI">{ingredient} </li>
                         ))
                     }
 
                 </ul>
-                <h2>Cooking Instructions:</h2>
-                <ul>
+                <h2 className="NewRecipe_Instructions_Header">Cooking Instructions:</h2>
+                <ul className="NewRecipe_Instructions_UL">
                     {
                         instructions.map((instructions, i) => (
-                            <li key={i}>{instructions}</li>
+                            <li key={i} className="NewRecipe_Instructions_LI">{instructions}</li>
                         ))
                     }
                 </ul>
-                <h2>Notes:</h2>
-                <p>{this.state.recipe.comments}</p>
-                <h2>Nutritional Information:</h2>
-                <ul>
-                    <li>Calories: {this.state.recipe.calories}</li>
-                    <li>Fat: {this.state.recipe.fat}</li>
-                    <li>Saturated Fat: {this.state.recipe.satfat}</li>
-                    <li>Carbs: {this.state.recipe.carbs}</li>
-                    <li>Fiber: {this.state.recipe.fiber}</li>
-                    <li>Sugar: {this.state.recipe.sugar}</li>
-                    <li>Protein: {this.state.recipe.protein}</li>
+                <h2 className="NewRecipe_Comments_Header">Notes:</h2>
+                <p className="NewRecipe_Comments">{this.state.recipe.comments}</p>
+                <h2 className="NewRecipe_Nutritional_Facts_Header">Nutritional Information:</h2>
+                <ul className="NewRecipe_Nutritional_Facts_UL">
+                    <li className="NewRecipe_Nutritional_Facts_Calories">Calories: {this.state.recipe.calories}</li>
+                    <li className="NewRecipe_Nutritional_Facts_Fat">Fat: {this.state.recipe.fat}</li>
+                    <li className="NewRecipe_Nutritional_Facts_SatFat">Saturated Fat: {this.state.recipe.satfat}</li>
+                    <li className="NewRecipe_Nutritional_Facts_Carbs">Carbs: {this.state.recipe.carbs}</li>
+                    <li className="NewRecipe_Nutritional_Facts_Fiber">Fiber: {this.state.recipe.fiber}</li>
+                    <li className="NewRecipe_Nutritional_Facts_Sugar">Sugar: {this.state.recipe.sugar}</li>
+                    <li className="NewRecipe_Nutritional_Facts_Protein">Protein: {this.state.recipe.protein}</li>
                 </ul>
-                <button onClick={this.getNewRecipe}>Get A New Recipe!</button>
+                <button onClick={this.getNewRecipe} className="NewRecipe_Button">Get A New Recipe!</button>
 
-                <Link to="/">Go Back</Link>
+                <Link to="/" className="back">Go Back</Link>
             </div>
         )
     }

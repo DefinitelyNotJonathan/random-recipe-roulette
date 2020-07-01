@@ -7,6 +7,7 @@ import Login from './Login/Login'
 import HomePage from './HomePage/Homepage'
 import NewRecipe from './NewRecipe/newRecipe'
 import ApiContext from './ApiContext'
+import './App.css'
 class App extends Component {
 
   state={
@@ -40,7 +41,7 @@ class App extends Component {
     return (
       <ApiContext.Provider value={value}>
         <div className="App">
-          <header className="App__header">
+          <header className="App_header">
             <h1>
               Random Recipes!
             </h1>

@@ -1,0 +1,233 @@
+html {
+    background: url(./Images/background5.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+form{
+    display:block;
+    max-width:80%;
+    margin:auto;
+    max-height:30%;
+    border-style: solid;
+    border-color: black;
+    border-width: 3px;
+    background-color: rgba(191, 203, 211, 0.904);
+
+}
+input{
+    display:block;
+    width:95%;
+    margin-left:auto;
+    margin-right:auto;
+    min-height:35px;
+}
+label{
+    display:block;
+    margin:.35rem .5rem;
+    max-height:5%;
+}
+
+button, a.button {
+  padding: 0.5rem 1rem;
+  width: auto;
+  font-size: 1rem;
+  background: #5052a0;
+  color: #fff;
+  position: relative;
+  top:0px;
+  transition: all .2s ease-in-out;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 0;
+  border:none;
+  border-radius:3px;
+  font-family:"MS Shell Dlg 2";
+}
+button.back::before, a.button.back::before {
+  /* content: url(./Images/backChevron.svg); */
+  display: inline-block;
+  position: relative;
+  font-size: 1rem;
+  width: 0.5rem;
+  padding-right: 0.4rem;
+  transition: padding-right .1s ease-in-out;
+}
+button.back:hover::before, a.button.back:hover::before {
+  padding-right: 0.5rem;
+  transition: padding-right .1s ease-in-out;
+}
+button.small, a.button.small {
+  padding: 0.2rem 0.5rem;
+  font-size:0.9rem;
+  /* haven't tested this one to see how it looks */
+}
+button:hover, a.button:hover {
+  background: #7b7dd2;
+  transition: all .2s ease-in-out;
+}
+button:active, a.button:active {
+  top:1px;
+  transition: all .2s ease-in-out;
+}
+/*>>>>>>>>>>>>>>>>>>>>>>>>APP>>>>>>>>>>>>>>>>>>>*/
+
+.App_header {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+}
+ul{
+    list-style-type:none;
+    padding:0;
+    max-width:80%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>LOGIN>>>>>>>>>>>>>>>>>*/
+
+.Login_container {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:1rem;
+}
+.Login_buttoncontainer{
+    width:100%;
+}
+.Login_button{
+    display:block;
+    margin: .5rem auto;
+}
+.Login_signup{
+    display:block;
+    text-align:center;
+    max-height:10%;
+}
+/*>>>>>>>>>>>>>>>>>>>>>>>>SIGNUP>>>>>>>>>>>>>>>>>*/
+
+.SignUp_container {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:1rem;
+}
+.SignUp_header {
+    text-align:center;
+}
+.SignUp_form {
+    border-style: solid;
+    border-color: rgba(210, 221, 228, 0.904);
+    border-width: 3px;
+    max-height:30%;
+}
+.SignUp_button_container {
+    display:block;
+    text-align: center;
+    max-height:23%;
+    margin-top:3%;
+}
+.SignUp_button {
+    text-align: center;
+    margin: .5rem auto;
+    border-width:1px;
+    border-radius:4px;
+    border-color: rgba(210, 221, 228, 0.904);
+
+}
+.SignUp_container>.button.back {
+    display:inline-block;
+    margin-bottom:1rem;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>HomePage>>>>>>>>>>>>>>>>>*/
+
+
+.HomeNav_Container{
+    display:block;
+    text-align:center;
+    height:auto;
+}
+.Homepage_Container{
+    display:block;
+    background-color: rgba(191, 203, 211, 0.904);
+    max-width:80%;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:1rem;
+}
+.Homepage_Welcome{
+    display:block;
+    text-align:center;
+}
+.NewRecipe_Link{
+    display:block;
+    text-align:center;
+}
+
+/*>>>>>>>>>>>>>>>>>>>>>>>>NewRecipe>>>>>>>>>>>>>>>>>*/
+
+.NewRecipe_Container{
+    display:block;
+    text-align:center;
+    margin:auto;
+    background-color: rgba(191, 203, 211, 0.904);
+    max-width:80%;
+    margin-bottom:1rem;
+}
+.NewRecipe_Button{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom:1rem;
+}
+
+@media screen and (min-width:640px) {
+    .App__header {
+        font-size:24px;
+    }
+}
+@media screen and (min-width:768px) {
+    .Login_container, .SignUp_container {
+        max-width:60%;
+    }
+    label {
+        font-size:22px;
+    }
+    button, a.button {
+      font-size:20px;
+    }
+    .HomeNav_Header {
+        font-size:30px;
+    }
+    .ListHomePage__List-link {
+        font-size:22px;
+    }
+}
+@media screen and (min-width:1024px) {
+    .Login_signup {
+        font-size:18px;
+    }
+    .Login_container, .SignUp_container {
+        max-width:50%;
+    }
+
+}  
+
+@media screen and (min-width:1200px) {
+    .SignUp_header {
+        font-size:30px;
+    }
+    .HomeNav_Header {
+        font-size:38px;
+    }
+    .App_header>h1 {
+        font-size:52px;
+    }
+
+    .Homepage_Container, .AddList_container, .ShareList_container, .ListMain_itemlistcontainer, .logout {
+        max-width:60%;
+    }
+}
