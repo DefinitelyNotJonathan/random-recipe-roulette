@@ -102,8 +102,7 @@ export default class NewRecipe extends React.Component{
         console.log(ingredients);
         return(
             <div className="NewRecipe_Container">
-                <h1 className="NewRecipe_Header">Your New Recipe!</h1>
-                <h2 className="NewRecipe_Name">Name: {this.state.recipe.name}</h2>
+                <h1 className="NewRecipe_Name">{this.state.recipe.name}</h1>
                 <h2 className="NewRecipe_Servings">Servings: {this.state.recipe.servings}</h2>
                 <h2 className="NewRecipe_Ingredients_Header">Ingredients:</h2>
                 <ul className="NewRecipe_Ingredients_UL">
@@ -134,9 +133,10 @@ export default class NewRecipe extends React.Component{
                     <li className="NewRecipe_Nutritional_Facts_Sugar">Sugar: {this.state.recipe.sugar}</li>
                     <li className="NewRecipe_Nutritional_Facts_Protein">Protein: {this.state.recipe.protein}</li>
                 </ul>
-                <button onClick={this.getNewRecipe} className="NewRecipe_Button">Get A New Recipe!</button>
-
-                <Link to="/" className="back">Go Back</Link>
+                <div className="NewRecipe_Button_Container">
+                    <button onClick={this.getNewRecipe} className="NewRecipe_Button">Get A New Recipe!</button>
+                    <Link to="/" className="button">Go Back</Link>
+                </div>
             </div>
         )
     }
