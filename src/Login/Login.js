@@ -72,6 +72,9 @@ export default class Login extends React.Component {
     render() {
         return (
             <div className="Login_container">
+                <header className="Login_Header">
+                    <h1>Random Recipes</h1>
+                </header>
                 <form action=""
                     onSubmit={(e) => this.handleSubmit(e)}
                     className="Login_form"

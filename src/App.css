@@ -90,15 +90,51 @@ ul{
     margin-right:auto;
 }
 
+/*>>>>>>>>>>>>>>>>>>>>>>>>NAVBAR>>>>>>>>>>>>>>>>>*/
+
+.Nav_Container{
+    background: linear-gradient(45deg, #ffd9af, #ffc066 );
+    max-width:100%;
+    margin-bottom:5rem;
+    /* border-style:solid;
+    border-width: .1px 0 0 0 ; */
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.28);
+    min-height:4rem;
+    top:0;
+    bottom:auto;
+}
+.Nav_Menu{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+    max-width:100%;
+    margin-top:0;
+    margin-bottom:0;
+    padding-top:1.25rem;
+
+}
+.Nav_MenuLogo, .Nav_MenuName, .Nav_MenuLogout{
+    margin-left:.5rem;
+    margin-right:.5rem;
+}
+.Nav_MenuLogo, .Nav_MenuName{
+    font-weight:bold;
+}
+
 /*>>>>>>>>>>>>>>>>>>>>>>>>LOGIN>>>>>>>>>>>>>>>>>*/
 
 .Login_container {
     display: block;
     margin-left:auto;
     margin-right:auto;
+    margin-top:3.5rem;
     margin-bottom:1rem;
     max-width:80%;
     min-height:100%;
+}
+.Login_Header{
+    text-align:center;
+    font-size:22px;
 }
 .Login_buttoncontainer{
     width:100%;
@@ -133,17 +169,21 @@ ul{
     display:block;
     text-align: center;
     max-height:23%;
-    margin-top:3%;
+    margin-top:.75rem;
+    margin-bottom:.75rem;
 }
 .SignUp_button {
     text-align: center;
-    margin: .5rem auto;
+    margin-left:auto;
+    margin-right:auto;
     border-width:1px;
     border-radius:4px;
+    display:block;
 }
-.SignUp_container>.button.back {
+.SignUp_button_container>a.button.back {
+    margin-top:.75rem;
     display:inline-block;
-    margin-bottom:1rem;
+    margin-bottom:0;
 }
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>HomePage>>>>>>>>>>>>>>>>>*/

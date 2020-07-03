@@ -2,7 +2,7 @@ import React from 'react'
 import ApiContext from '../ApiContext'
 import { Link, Redirect } from 'react-router-dom'
 import config from '../config'
-import HomeNav from '../HomeNav/HomeNav'
+import Nav from '../Nav/Nav'
 import LogoutButton from '../LogoutButton'
 
 
@@ -50,14 +50,13 @@ export default class HomePage extends React.Component {
     console.log(this.context.user)
     return (
       <div className="Page_Container">
+        <Nav name={this.context.user.firstname}></Nav>
         <div className="Homepage_Container">
-          <HomeNav name={this.context.user.firstname} className="Homepage_DashboardComp"></HomeNav>
-          <h3 className="Homepage_Welcome">Sick of the same dinners? Done with your everyday desserts? Bored of the same old beverages? Start your culinary adventure with the click of a button!</h3>
+          <p className="Homepage_Welcome">Sick of the same dinners? Done with your everyday desserts? Bored of the same old beverages? Start your culinary adventure with the click of a button!</p>
           <div className="NewRecipe_Link">
             <Link to="/newrecipe" className="button">Get A New Recipe!</Link>
           </div>
         </div>
-        <LogoutButton></LogoutButton>
       </div>
     )
   }

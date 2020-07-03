@@ -7,6 +7,7 @@ import Login from './Login/Login'
 import HomePage from './HomePage/Homepage'
 import NewRecipe from './NewRecipe/newRecipe'
 import ApiContext from './ApiContext'
+import Nav from './Nav/Nav'
 import './App.css'
 class App extends Component {
 
@@ -42,9 +43,6 @@ class App extends Component {
       <ApiContext.Provider value={value}>
         <div className="App">
           <header className="App_header">
-            <h1>
-              Random Recipes!
-            </h1>
           </header>
           <ErrorBoundary errorMessage='could not display MainRoutes'>
             <main className="App__main">{this.renderMainRoutes()}

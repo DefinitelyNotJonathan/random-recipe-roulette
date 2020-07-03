@@ -39,16 +39,8 @@ export default class SignUp extends React.Component {
     render() {
         return (
             <div className="SignUp_container">
-                <Link
-                    className='button back'
-                    to={{
-                        pathname: '/login',
-                    }}
-                >
-                    Back
-                 </Link>
                 <form onSubmit={this.handleSubmit} className="SignUp_form">
-                    <h2 className="SignUp_header">Sign Up</h2>
+                    <h2 className="SignUp_header">Create Account</h2>
                     <label htmlFor="firstname" className="SignUp_label">First Name*</label>
                     <input type="text" id="firstname" name="firstname" className="SignUp_input" required></input>
                     <label htmlFor="lastname" className="SignUp_label">Last Name*</label>
@@ -58,7 +50,8 @@ export default class SignUp extends React.Component {
                     <label htmlFor="p_word" id="p_word" name="p_word" className="SignUp_label">Password*</label>
                     <input type="password" id="p_word" name="p_word" className="SignUp_input" required></input>
                     <div className="SignUp_button_container">
-                        <button name="signup" className="SignUp_button" >Sign Up!</button>
+                        <button name="signup" className="SignUp_button" > Create Account  </button>
+                        <Link className='button back' to='/login'>Go Back</Link>
                     </div>
                 </form>
             </div>
