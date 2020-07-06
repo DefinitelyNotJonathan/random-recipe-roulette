@@ -7,7 +7,6 @@ import Login from './Login/Login'
 import HomePage from './HomePage/Homepage'
 import NewRecipe from './NewRecipe/newRecipe'
 import ApiContext from './ApiContext'
-import Nav from './Nav/Nav'
 import './App.css'
 class App extends Component {
 

@@ -64,9 +64,12 @@ export default class NewRecipe extends React.Component{
     }
 
     getNewRecipe(e){
+        console.log('getNewRecipe() running')
         let keys= Object.keys(this.state.names)
         let randomNumber = Math.floor(Math.random() * (keys.length)) + 1;
         let randomString = String(randomNumber)
+        console.log('CONFIG.API_ENDPOINT')
+        console.log(config.API_ENDPOINT)
         fetch(`${config.API_ENDPOINT}/api/recipes/random/` + randomString, {
             credentials:'include'
         })
@@ -109,7 +112,8 @@ export default class NewRecipe extends React.Component{
 
                 <div className="NewRecipe_Container">
                     <h1 className="NewRecipe_Header Name">{this.state.recipe.name}</h1>
-                    <h2 className="NewRecipe_Header Servings">Servings: {this.state.recipe.servings}</h2>
+                    <h2 className="NewRecipe_Header Servings">Servings:</h2>
+                    <h2 className="NewRecipe_Servings"> {this.state.recipe.servings}</h2>
                     <h2 className="NewRecipe_Header Ingredients">Ingredients:</h2>
                     <ul className="NewRecipe_Ingredients_UL">
                         {

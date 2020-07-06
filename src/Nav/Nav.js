@@ -8,12 +8,19 @@ export default class HomeNav extends React.Component {
     constructor(props) {
         super(props)
         this.handleLogout = this.handleLogout.bind(this)
+        this.state = {
+            active: false
+        }
     }
 
     componentDidMount(){
      console.log('HomeNav did mount')
      console.log('this.props.name')
-     console.log(this.props.name)   
+     console.log(this.props.name)
+     setTimeout(function(){
+        this.active = true
+        console.log('this.active = true')
+     }, 3000)   
     }
 
     handleLogout() {
@@ -23,7 +30,8 @@ export default class HomeNav extends React.Component {
     }
     render(){
         return(
-            <div className="Nav_Container">
+            <div className={`Nav_Container ${this.state.active ? "active" : ""}`}>
+                <h2>{this.state.active}</h2>
                 <nav>
                     <ul className="Nav_Menu">
                         <li className="Nav_MenuLogo">Random Recipes</li>
@@ -37,3 +45,8 @@ export default class HomeNav extends React.Component {
         )
     }
 }
+
+
+const Banner = ({ active, children }) => (
+    <div className={`banner ${active ? "active" : ""}`}>{children}</div>
+  );

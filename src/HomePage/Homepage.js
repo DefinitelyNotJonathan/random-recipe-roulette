@@ -3,8 +3,6 @@ import ApiContext from '../ApiContext'
 import { Link, Redirect } from 'react-router-dom'
 import config from '../config'
 import Nav from '../Nav/Nav'
-import LogoutButton from '../LogoutButton'
-
 
 export default class HomePage extends React.Component {
     static contextType=ApiContext;

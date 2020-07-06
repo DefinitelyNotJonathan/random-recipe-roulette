@@ -4,6 +4,7 @@ html {
     background-size: cover;
     background-position: center center;
     min-height:100%;
+    font-family: 'Josefin Sans', sans-serif;
 }
 form{
     display:block;
@@ -41,7 +42,6 @@ button, a.button {
   z-index: 0;
   border:none;
   border-radius:3px;
-  font-family:"MS Shell Dlg 2";
 }
 
 a.button{
@@ -120,6 +120,10 @@ ul{
 .Nav_MenuLogo, .Nav_MenuName{
     font-weight:bold;
 }
+.Nav_MenuLogo{
+    font-family:'Amatic SC', cursive;
+    font-weight: bold;
+}
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>LOGIN>>>>>>>>>>>>>>>>>*/
 
@@ -134,10 +138,15 @@ ul{
 }
 .Login_Header{
     text-align:center;
-    font-size:22px;
+    font-size:26px;
+    font-family: 'Amatic SC', cursive;
+}
+.Login_form{
+    font-family: 'Josefin Sans', sans-serif;
 }
 .Login_buttoncontainer{
     width:100%;
+    font-family: 'Josefin Sans', sans-serif;
 }
 .Login_button{
     display:block;
@@ -159,6 +168,7 @@ ul{
 }
 .SignUp_header {
     text-align:center;
+    font-family: 'Amatic SC', cursive;
 }
 .SignUp_form {
     border-style: solid;
@@ -233,6 +243,12 @@ ul{
     border-width:1px;
     border-color: black;
     border-style:solid;
+}
+.NewRecipe_Header{
+    font-family:'Amatic SC', cursive;
+}
+.NewRecipe_Servings{
+    font-family: 'Josefin Sans', sans-serif;
 }
 .NewRecipe_Button_Container{
     display:block;
