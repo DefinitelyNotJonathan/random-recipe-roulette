@@ -7,4 +7,4 @@ it('renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(<BrowserRouter><Login /></BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
-  });
+});

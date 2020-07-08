@@ -1,16 +1,15 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import config from '../config'
-import ApiContext from '../ApiContext'
-import Nav from '../Nav/Nav'
+import React from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import config from '../config';
+import ApiContext from '../ApiContext';
+import Nav from '../Nav/Nav';
 
-export default class NewRecipe extends React.Component{
-
-    static contextType=ApiContext
-
-    constructor(props){
-        super(props)
-        this.state={
+export default class NewRecipe extends React.Component {
+    static contextType = ApiContext;
+    constructor(props) {
+        super(props);
+        this.state = {
+            toLogin: false,
             names: {},
             recipe: {
                 id: null,
@@ -30,86 +29,85 @@ export default class NewRecipe extends React.Component{
                 protein: null,
                 satfat: null,
                 sugar: null,
-                tags: null
-            }
-        }
-        this.getNewRecipe = this.getNewRecipe.bind(this)
+                tags: null,
+            },
+        };
+        this.getNewRecipe = this.getNewRecipe.bind(this);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         console.log('NewRecipe did mount');
         fetch(`${config.API_ENDPOINT}/api/recipes/names`, {
-            credentials: 'include'
+            credentials: 'include',
           })
-            .then(response => {
-                if (response.status === 403) {
-                    this.setState({
-                      toLogin: true
-                    })
-                }
-                else{return response.json()}
-            })
-            // .then(res => res.json()) 
-            .then(data => {
-                console.log('data')
-                console.log(data)
+        .then((response) => {
+            if (response.status === 403) {
                 this.setState({
-                    names: data
-                })
-                console.log('this.state.names[1]')
-                console.log(this.state.names)
-                this.getNewRecipe();   
-            }) 
-       
+                    toLogin: true,
+                });
+            } else { return response.json(); }
+        })
+            // .then(res => res.json()) 
+        .then((data) => {
+            console.log('data');
+            console.log(data);
+            this.setState({
+                names: data,
+            });
+            console.log('this.state.names[1]');
+            console.log(this.state.names);
+            this.getNewRecipe();   
+        }); 
     }
 
-    getNewRecipe(e){
-        console.log('getNewRecipe() running')
-        let keys= Object.keys(this.state.names)
+    getNewRecipe(e) {
+        console.log('getNewRecipe() running');
+        let keys = Object.keys(this.state.names);
         let randomNumber = Math.floor(Math.random() * (keys.length)) + 1;
-        let randomString = String(randomNumber)
-        console.log('CONFIG.API_ENDPOINT')
-        console.log(config.API_ENDPOINT)
+        let randomString = String(randomNumber);
+        console.log('CONFIG.API_ENDPOINT');
+        console.log(config.API_ENDPOINT);
         fetch(`${config.API_ENDPOINT}/api/recipes/random/` + randomString, {
-            credentials:'include'
+            credentials: 'include',
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log('randomNumber fetch data')
-            console.log(data)
-            if(data.ingredients){
-                data.ingredients=this.prepIngredients(data.ingredients)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log('randomNumber fetch data');
+            console.log(data);
+            if (data.ingredients) {
+                data.ingredients = this.prepIngredients(data.ingredients);
             }
-            if(data.instructions){
-                data.instructions=this.prepInstructions(data.instructions)
+            if (data.instructions) {
+                data.instructions = this.prepInstructions(data.instructions);
             }
             this.setState({
-                recipe: data
-            })
-            console.log('this.state.recipe')
-            console.log(this.state.recipe)
-        })
+                recipe: data,
+            });
+            console.log('this.state.recipe');
+            console.log(this.state.recipe);
+        });
     }
 
-    prepIngredients(input){
-        return input.split('--')
+    prepIngredients(input) {
+        return input.split('--');
     }
 
-    prepInstructions(input){
-        return input.split('\r\n\r\n')
+    prepInstructions(input) {
+        return input.split('\r\n\r\n');
     }
 
-    render(){
-
+    render() {
         let ingredients = this.state.recipe.ingredients;
         let instructions = this.state.recipe.instructions;
         console.log(ingredients);
+        if (this.state.toLogin === true) {
+            return <Redirect to="/login"/>;
+        }
         return(
             <div className="Page_Container">
                 <header>
-                    <Nav className="NewRecipe_Nav"></Nav>
+                    <Nav className="NewRecipe_Nav" />
                 </header>
-
                 <div className="NewRecipe_Container">
                     <h1 className="NewRecipe_Header Name">{this.state.recipe.name}</h1>
                     <h2 className="NewRecipe_Header Servings">Servings:</h2>
@@ -121,13 +119,12 @@ export default class NewRecipe extends React.Component{
                                 <li key={i} className="NewRecipe_Ingredients_LI">{ingredient} </li>
                             ))
                         }
-
                     </ul>
                     <h2 className="NewRecipe_Header Instructions">Cooking Instructions:</h2>
                     <ul className="NewRecipe_Instructions_UL">
                         {
-                            instructions.map((instructions, i) => (
-                                <li key={i} className="NewRecipe_Instructions_LI">{instructions}</li>
+                            instructions.map((instruction, i) => (
+                                <li key={i} className="NewRecipe_Instructions_LI">{instruction}</li>
                             ))
                         }
                     </ul>
@@ -144,13 +141,11 @@ export default class NewRecipe extends React.Component{
                         <li className="NewRecipe_Nutritional_Facts Protein">Protein: {this.state.recipe.protein}</li>
                     </ul>
                     <div className="NewRecipe_Button_Container">
-                        <button onClick={this.getNewRecipe} className="NewRecipe_Button">Get A New Recipe!</button>
+                        <button type="button" onClick={this.getNewRecipe} className="NewRecipe_Button">Get A New Recipe!</button>
                         <Link to="/" className="button">Go Back</Link>
                     </div>
                 </div>
-
             </div>
-        )
+        );
     }
-
 }

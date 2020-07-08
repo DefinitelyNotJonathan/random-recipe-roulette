@@ -1,18 +1,21 @@
-import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
-import ErrorBoundary from './ErrorBoundary'
-import Landing from './Landing/Landing'
-import Signup from './Signup/Signup'
-import Login from './Login/Login'
-import HomePage from './HomePage/Homepage'
-import NewRecipe from './NewRecipe/newRecipe'
-import ApiContext from './ApiContext'
-import './App.css'
+import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+import ErrorBoundary from './ErrorBoundary';
+import Landing from './Landing/Landing';
+import Signup from './Signup/Signup';
+import Login from './Login/Login';
+import HomePage from './HomePage/Homepage';
+import NewRecipe from './NewRecipe/newRecipe';
+import ApiContext from './ApiContext';
+import './App.css';
 class App extends Component {
 
-  state={
-    user: {},
-    ingredients: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {},
+      ingredients: []
+    };
   }
 
   renderMainRoutes() {
@@ -23,12 +26,12 @@ class App extends Component {
         <Route path="/signup" component={Signup}/>
         <Route path="/newrecipe" component={NewRecipe}/>
       </Route>
-    )
+    );
   }
 
 
   render(){
-    const value ={
+    const value = {
       user: this.state.user,
       setUser:(user) => {
         this.setState({ user: user});
@@ -37,7 +40,7 @@ class App extends Component {
       setIngredients:(ingredients) => {
         this.setState({ ingredients: ingredients});
       }
-    }
+    };
     return (
       <ApiContext.Provider value={value}>
         <div className="App">
@@ -50,7 +53,8 @@ class App extends Component {
 
         </div>
       </ApiContext.Provider>
-    );  }
+    );
+  }
 }
 
 export default App;
