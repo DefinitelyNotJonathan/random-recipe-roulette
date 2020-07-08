@@ -31,6 +31,7 @@ export default class NewRecipe extends React.Component {
                 sugar: null,
                 tags: null,
             },
+            comment: true,
         };
         this.getNewRecipe = this.getNewRecipe.bind(this);
     }
@@ -83,6 +84,15 @@ export default class NewRecipe extends React.Component {
             this.setState({
                 recipe: data,
             });
+            if (this.state.recipe.comments == false ) {
+                this.setState({
+                    comment: false
+                });
+            } else {
+                this.setState({
+                comment: true
+                });
+            }
             console.log('this.state.recipe');
             console.log(this.state.recipe);
         });
@@ -100,6 +110,8 @@ export default class NewRecipe extends React.Component {
         let ingredients = this.state.recipe.ingredients;
         let instructions = this.state.recipe.instructions;
         console.log(ingredients);
+        console.log("THIS.STATE.COMMENT");
+        console.log(this.state.comment);
         if (this.state.toLogin === true) {
             return <Redirect to="/login"/>;
         }
@@ -116,7 +128,7 @@ export default class NewRecipe extends React.Component {
                     <ul className="NewRecipe_Ingredients_UL">
                         {
                             ingredients.map((ingredient, i) => (
-                                <li key={i} className="NewRecipe_Ingredients">{ingredient} </li>
+                                <li key={i} className="NewRecipe_LI">{ingredient} </li>
                             ))
                         }
                     </ul>
@@ -124,21 +136,21 @@ export default class NewRecipe extends React.Component {
                     <ul className="NewRecipe_Instructions_UL">
                         {
                             instructions.map((instruction, i) => (
-                                <li key={i} className="NewRecipe_Instructions">{instruction}</li>
+                                <li key={i} className="NewRecipe_LI">{instruction}</li>
                             ))
                         }
                     </ul>
-                    <h2 className="NewRecipe_Header Comments">Notes:</h2>
-                    <p className="NewRecipe_Comments">{this.state.recipe.comments}</p>
+                    <h2 className={`NewRecipe_Header ${this.state.comment ? "" : "hidden"}`}>Notes:</h2>
+                    <p className={`NewRecipe_Comments ${this.state.comment ? "" : "hidden"}`}>{this.state.recipe.comments}</p>
                     <h2 className="NewRecipe_Header Nutritional_Facts">Nutritional Information:</h2>
                     <ul className="NewRecipe_Nutritional_Facts_UL">
-                        <li className="NewRecipe_Nutritional_Facts Calories">Calories: {this.state.recipe.calories}</li>
-                        <li className="NewRecipe_Nutritional_Facts Fat">Fat: {this.state.recipe.fat}</li>
-                        <li className="NewRecipe_Nutritional_Facts SatFat">Saturated Fat: {this.state.recipe.satfat}</li>
-                        <li className="NewRecipe_Nutritional_Facts Carbs">Carbs: {this.state.recipe.carbs}</li>
-                        <li className="NewRecipe_Nutritional_Facts Fiber">Fiber: {this.state.recipe.fiber}</li>
-                        <li className="NewRecipe_Nutritional_Facts Sugar">Sugar: {this.state.recipe.sugar}</li>
-                        <li className="NewRecipe_Nutritional_Facts Protein">Protein: {this.state.recipe.protein}</li>
+                        <li className="NewRecipe_LI Calories">Calories: {this.state.recipe.calories}</li>
+                        <li className="NewRecipe_LI Fat">Fat: {this.state.recipe.fat}</li>
+                        <li className="NewRecipe_LI SatFat">Saturated Fat: {this.state.recipe.satfat}</li>
+                        <li className="NewRecipe_LI Carbs">Carbs: {this.state.recipe.carbs}</li>
+                        <li className="NewRecipe_LI Fiber">Fiber: {this.state.recipe.fiber}</li>
+                        <li className="NewRecipe_LI Sugar">Sugar: {this.state.recipe.sugar}</li>
+                        <li className="NewRecipe_LI Protein">Protein: {this.state.recipe.protein}</li>
                     </ul>
                     <div className="NewRecipe_Button_Container">
                         <button type="button" onClick={this.getNewRecipe} className="NewRecipe_Button">Get A New Recipe!</button>
