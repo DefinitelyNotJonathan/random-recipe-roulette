@@ -1,17 +1,14 @@
 import React from 'react';
-import ApiContext from '../ApiContext'
-import config from '../config'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import ApiContext from '../ApiContext';
+import config from '../config';
 
 export default class SignUp extends React.Component {
-
     static contextType = ApiContext;
-
     constructor(props) {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
-
 
     handleSubmit(e) {
         e.preventDefault();
@@ -24,17 +21,16 @@ export default class SignUp extends React.Component {
             method: 'POST',
             credentials: 'include',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(sendData)
+            body: JSON.stringify(sendData),
         })
-            .then(res => res.json())
-            .then((user) => {
-                if (user && user.hasOwnProperty("id")) {
-                    this.context.setUser({ id: user.id })
-                    this.props.history.push('/login')
-                }
-            })
+        .then((res) => res.json())
+        .then((user) => {
+            if (user && user.hasOwnProperty("id")) {
+                this.context.setUser({ id: user.id });
+                this.props.history.push('/login');
+            }
+        });
     }
-
 
     render() {
         return (
@@ -50,12 +46,11 @@ export default class SignUp extends React.Component {
                     <label htmlFor="p_word" id="p_word" name="p_word" className="SignUp_label">Password*</label>
                     <input type="password" id="p_word" name="p_word" className="SignUp_input" required></input>
                     <div className="SignUp_button_container">
-                        <button name="signup" className="SignUp_button" > Create Account  </button>
+                        <button name="signup" className="SignUp_button"> Create Account  </button>
                         <Link className='button back' to='/login'>Go Back</Link>
                     </div>
                 </form>
             </div>
-        )
+        );
     }
 }
-
