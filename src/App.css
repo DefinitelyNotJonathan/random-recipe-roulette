@@ -277,8 +277,7 @@ p{
     margin-top:0;
     border-top:none;
     font-family:'Amatic SC', cursive;
-    font-size: 26px;
-
+    font-size: 28px;
 }
 .Nav_MenuName{
     font-size:22px;
@@ -418,6 +417,13 @@ p{
 }
 .NewRecipe_Header{
     font-family:'Amatic SC', cursive;
+    font-size:34px;
+}
+.NewRecipe_Header.name{
+    text-decoration:underline;
+}
+.NewRecipe_Instructions, .NewRecipe_Ingredients {
+    font-size: 20px;
 }
 .NewRecipe_Servings{
     font-family: 'Josefin Sans', sans-serif;

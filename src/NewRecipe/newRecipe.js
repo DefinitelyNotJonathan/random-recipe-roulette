@@ -116,7 +116,7 @@ export default class NewRecipe extends React.Component {
                     <ul className="NewRecipe_Ingredients_UL">
                         {
                             ingredients.map((ingredient, i) => (
-                                <li key={i} className="NewRecipe_Ingredients_LI">{ingredient} </li>
+                                <li key={i} className="NewRecipe_Ingredients">{ingredient} </li>
                             ))
                         }
                     </ul>
@@ -124,7 +124,7 @@ export default class NewRecipe extends React.Component {
                     <ul className="NewRecipe_Instructions_UL">
                         {
                             instructions.map((instruction, i) => (
-                                <li key={i} className="NewRecipe_Instructions_LI">{instruction}</li>
+                                <li key={i} className="NewRecipe_Instructions">{instruction}</li>
                             ))
                         }
                     </ul>
