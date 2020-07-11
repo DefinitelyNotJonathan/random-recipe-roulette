@@ -28,12 +28,6 @@ export default class HomeNav extends React.Component {
         };
     }
 
-    componentDidMount() {
-     console.log('HomeNav did mount');
-     console.log('this.props.name');
-     console.log(this.props.name);
-    }
-
     handleLogout() {
         fetch(`${config.API_ENDPOINT}/api/logout`, {
             credentials: 'include',

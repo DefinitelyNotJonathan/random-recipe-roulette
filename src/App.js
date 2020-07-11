@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import ErrorBoundary from './ErrorBoundary';
-import Landing from './Landing/Landing';
 import Signup from './Signup/Signup';
 import Login from './Login/Login';
 import HomePage from './HomePage/Homepage';

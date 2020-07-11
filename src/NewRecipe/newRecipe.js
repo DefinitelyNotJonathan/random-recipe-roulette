@@ -37,7 +37,6 @@ export default class NewRecipe extends React.Component {
     }
 
     componentDidMount() {
-        console.log('NewRecipe did mount');
         fetch(`${config.API_ENDPOINT}/api/recipes/names`, {
             credentials: 'include',
           })
@@ -50,31 +49,22 @@ export default class NewRecipe extends React.Component {
         })
             // .then(res => res.json()) 
         .then((data) => {
-            console.log('data');
-            console.log(data);
             this.setState({
                 names: data,
             });
-            console.log('this.state.names[1]');
-            console.log(this.state.names);
             this.getNewRecipe();   
         }); 
     }
 
     getNewRecipe(e) {
-        console.log('getNewRecipe() running');
         let keys = Object.keys(this.state.names);
         let randomNumber = Math.floor(Math.random() * (keys.length)) + 1;
         let randomString = String(randomNumber);
-        console.log('CONFIG.API_ENDPOINT');
-        console.log(config.API_ENDPOINT);
         fetch(`${config.API_ENDPOINT}/api/recipes/random/` + randomString, {
             credentials: 'include',
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log('randomNumber fetch data');
-            console.log(data);
             if (data.ingredients) {
                 data.ingredients = this.prepIngredients(data.ingredients);
             }
@@ -84,6 +74,7 @@ export default class NewRecipe extends React.Component {
             this.setState({
                 recipe: data,
             });
+            window.scrollTo(0,0);
             if (this.state.recipe.comments == false ) {
                 this.setState({
                     comment: false
@@ -93,8 +84,6 @@ export default class NewRecipe extends React.Component {
                 comment: true
                 });
             }
-            console.log('this.state.recipe');
-            console.log(this.state.recipe);
         });
     }
 
@@ -109,9 +98,6 @@ export default class NewRecipe extends React.Component {
     render() {
         let ingredients = this.state.recipe.ingredients;
         let instructions = this.state.recipe.instructions;
-        console.log(ingredients);
-        console.log("THIS.STATE.COMMENT");
-        console.log(this.state.comment);
         if (this.state.toLogin === true) {
             return <Redirect to="/login"/>;
         }

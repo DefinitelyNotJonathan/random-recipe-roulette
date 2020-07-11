@@ -55,16 +55,11 @@ export default class Login extends React.Component {
         .then((user) => {
             if (user.hasOwnProperty('id')) {
                 this.context.setUser(user);
-                console.log(user);
                 this.props.history.push('/');
             } else {
                     // some problem with the data load!
             }
         })
-        .catch((error) => {
-            console.log('an error happened');
-            console.log(error);
-        });
     }
 
     render() {

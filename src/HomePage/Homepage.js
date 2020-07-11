@@ -12,11 +12,9 @@ export default class HomePage extends React.Component {
       toLogin: false,
       names: {},
     };
-        // this.getNewRecipe = this.getNewRecipe.bind(this);
   }
 
   componentDidMount() {
-   console.log('HomePage did mount');
     fetch(`${config.API_ENDPOINT}/api/recipes/names`, {
       credentials: 'include',
     })
@@ -29,13 +27,9 @@ export default class HomePage extends React.Component {
     })
         // .then(res => res.json()) 
     .then((data) => {
-      console.log('data');
-      console.log(data);
       this.setState({
         names: data,
       });
-      console.log('this.state.names[1]');
-      console.log(this.state.names);
     });
   }
 
@@ -43,8 +37,6 @@ export default class HomePage extends React.Component {
     if (this.state.toLogin === true) {
       return <Redirect to='/login' />;
     }
-    console.log('this.context.user');
-    console.log(this.context.user);
     return (
       <div className="Page_Container">
         <Nav name={this.context.user.firstname}/>
