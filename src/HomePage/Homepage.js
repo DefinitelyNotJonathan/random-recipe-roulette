@@ -39,7 +39,9 @@ export default class HomePage extends React.Component {
     }
     return (
       <div className="Page_Container">
-        <Nav name={this.context.user.firstname}/>
+        <header>
+          <Nav name={this.context.user.firstname}/>
+        </header>
         <div className="Homepage_Container">
           <p className="Homepage_Welcome">Sick of the same dinners? Done with your everyday desserts? Start your culinary adventure with the click of a button!</p>
           <div className="NewRecipe_Link">
