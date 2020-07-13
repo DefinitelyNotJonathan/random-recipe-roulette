@@ -463,14 +463,95 @@ li.Nav_MenuLogo {
 }  
 
 @media screen and (min-width:1200px) {
+    html {
+        min-height:100%;
+    }
+    body {
+        min-height:100%;
+    }
     .SignUp_header {
         font-size:30px;
     }
     .App_header>h1 {
         font-size:52px;
     }
-
+    .Page_Container {
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        min-height: 100%;
+    }
+    .Homepage_Container {
+        max-height:16rem;
+        margin-top:9rem;
+        margin-bottom: 10rem;
+    }
     .Homepage_Container, .logout {
         max-width:60%;
     }
+    .Nav_Container{
+        background: linear-gradient(45deg, #ffd9af, #ffc066 );
+        box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.28);
+        max-width:6rem;
+        margin-left:0;
+        margin-right:0;
+        top:0;
+        bottom:0;
+        transition: min-width .2s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        min-height:12rem;
+        max-height:12rem;
+        margin-bottom: 0;
+    }
+    .Nav_Container.active{
+        min-height:25rem;
+        min-width:16rem;
+        max-width: none;
+        transition: min-width .2s ease-in-out;
+        flex-direction: column;
+    
+    }
+    .Nav_Navbar{
+        max-width:100%;
+        display:flex;
+        flex-direction:column;
+        justify-content: space-evenly;
+    }
+    .Nav_Menu{
+        display:flex;
+        flex-direction:column;
+        justify-content: space-between;
+        max-height:100%;
+        align-items:center;
+        margin-bottom:0;
+    }
+    
+    .Nav_MenuLogo, .Nav_MenuName, .Nav_MenuLogout{
+        min-height:80%;
+        border-top: 1px solid white;
+        margin-top:.5rem;
+        margin-bottom:.5rem;
+        padding-top:1.25rem;
+        padding-bottom:.5rem;
+    }
+    .Nav_MenuLogo, .Nav_MenuName{
+        font-weight:bold;
+    }
+    li.Nav_MenuLogo {
+        padding-top:0;
+        margin-top:0;
+        border-top:none;
+        font-family:'Amatic SC', cursive;
+        font-size: 28px;
+    }
+    .Nav_MenuLogout{
+        padding-bottom: 1rem;
+    }
+    button.Menu_button{
+        min-height:3rem;
+    }
+    
 }
