@@ -493,7 +493,8 @@ li.Nav_MenuLogo {
     .Nav_Container{
         background: linear-gradient(45deg, #ffd9af, #ffc066 );
         box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.28);
-        max-width:6rem;
+        max-width:16rem;
+        max-height:4rem;
         margin-left:0;
         margin-right:0;
         top:0;
@@ -510,7 +511,7 @@ li.Nav_MenuLogo {
     }
     .Nav_Container.active{
         min-height:10rem;
-        max-height:24rem;
+        max-height:26rem;
         min-width:16rem;
         max-width: none;
         transition: min-width .2s ease-in-out;
@@ -555,6 +556,7 @@ li.Nav_MenuLogo {
     .Nav_Container.active li.Nav_MenuLogo {
         min-height:2rem;
         padding-top:.5rem;
+        font-size:38px;
     }
     .Nav_MenuName {
         font-weight:bold;

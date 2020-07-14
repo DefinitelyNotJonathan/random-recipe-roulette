@@ -6,8 +6,6 @@
 <ul>
     <li>Email: test@test.test</li>
     <li>Password: test</li>
-    <li>Email: test2@test.test</li>
-    <li>Password: test</li>
 </ul>
 <h2>Screenshots:</h2>
 <ul>
