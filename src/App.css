@@ -113,61 +113,10 @@ h2{
     }
 
 }
-@media screen and (min-width: 1024px){
-    form{
-        display:block;
-        margin:auto;
-        max-height:30%;
-        border-style: solid;
-        border-color: black;
-        border-width: 2px;
-        background-color: rgba(212, 225, 235, 0.842);
-    }
-    input{
-        display:block;
-        width:95%;
-        margin-left:auto;
-        margin-right:auto;
-        min-height:35px;
-    }
-    label{
-        display:block;
-    }
-
-}
 @media screen and (min-width: 1200px){
-    form{
-        display:block;
-        margin:auto;
-        max-height:30%;
-        border-style: solid;
-        border-color: black;
-        border-width: 2px;
-        background-color: rgba(212, 225, 235, 0.842);
-    }
-    input{
-        display:block;
-        width:95%;
-        margin-left:auto;
-        margin-right:auto;
-        min-height:35px;
-    }
     label{
-        display:block;
         margin:.5rem .5rem;
-        max-height:5%;
-        font-size: 18px;
     }
-
-}
-/*>>>>>>>>>>>>>>>>>>>>>>>>APP>>>>>>>>>>>>>>>>>>>*/
-
-.App_header {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
 }
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>NAVBAR>>>>>>>>>>>>>>>>>*/
@@ -426,9 +375,6 @@ li.Nav_MenuLogo {
     }
     body {
         min-height:100%;
-    }
-    .SignUp_header {
-        font-size:30px;
     }
     .App_header>h1 {
         font-size:52px;
