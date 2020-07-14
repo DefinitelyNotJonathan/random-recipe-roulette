@@ -28,7 +28,6 @@ class App extends Component {
     );
   }
 
-
   render(){
     const value = {
       user: this.state.user,
@@ -49,7 +48,6 @@ class App extends Component {
             <main className="App__main">{this.renderMainRoutes()}
             </main>
           </ErrorBoundary>
-
         </div>
       </ApiContext.Provider>
     );

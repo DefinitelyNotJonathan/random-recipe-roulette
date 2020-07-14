@@ -3,20 +3,6 @@ import { Link } from 'react-router-dom';
 import ApiContext from '../ApiContext';
 import config from '../config';
 
-// const Banner = (active) => (
-//     <div className={`Nav_Container ${active ? "active" : ""}`}>
-//         <nav>
-//             <ul className="Nav_Menu">
-//                 <li className="Nav_MenuLogo">Random Recipes</li>
-//                 <li className="Nav_MenuName">{this.props.name}</li>
-//                 <li className="Nav_MenuLogout">
-//                     <Link onClick={this.handleLogout} to="/login" className="button">Logout</Link>
-//                 </li>
-//             </ul>
-//         </nav>
-//     </div>
-//   );
-
 export default class HomeNav extends React.Component {
     static contextType = ApiContext;
     constructor(props) {

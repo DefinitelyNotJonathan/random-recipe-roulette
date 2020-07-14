@@ -44,11 +44,9 @@ ul{
 li{
     font-size:20px;
 }
-
 button, a.button {
   padding: 0.5rem 1rem;
   width: auto;
-  /* background: #45641f; */
   background: #108048;
   color: #fff;
   position: relative;
@@ -67,7 +65,6 @@ a.button{
     margin-bottom:1rem;
 }
 button.back::before, a.button.back::before {
-  /* content: url(./Images/backChevron.svg); */
   display: inline-block;
   position: relative;
   font-size: 1rem;
@@ -79,13 +76,8 @@ button.back:hover::before, a.button.back:hover::before {
   padding-right: 0.5rem;
   transition: padding-right .1s ease-in-out;
 }
-/* button.small, a.button.small {
-  padding: 0.2rem 0.5rem;
-  font-size:0.9rem;
-  haven't tested this one to see how it looks 
-} */
+
 button:hover, a.button:hover {
-    /* background: #55832c; */
   background: #17ac61;
   transition: all .2s ease-in-out;
 }
@@ -101,12 +93,6 @@ h1{
 h2{
     font-family:'Amatic SC', cursive;
     font-size:34px;
-}
-h3{
-
-}
-p{
-    
 }
 
 @media screen and (min-width: 768px){
@@ -147,18 +133,7 @@ p{
     label{
         display:block;
     }
-    h1{
 
-    }
-    h2{
-    
-    }
-    h3{
-    
-    }
-    p{
-        
-    }
 }
 @media screen and (min-width: 1200px){
     form{
@@ -183,18 +158,7 @@ p{
         max-height:5%;
         font-size: 18px;
     }
-    h1{
 
-    }
-    h2{
-    
-    }
-    h3{
-    
-    }
-    p{
-        
-    }
 }
 /*>>>>>>>>>>>>>>>>>>>>>>>>APP>>>>>>>>>>>>>>>>>>>*/
 
@@ -214,8 +178,6 @@ p{
     margin-right:auto;
     max-width:95%;
     margin-bottom:5rem;
-    /* border-style:solid;
-    border-width: .1px 0 0 0 ; */
     box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.28);
     max-height:4rem;
     top:0;
@@ -230,7 +192,6 @@ p{
     min-height:8rem;
     max-height: none;
     transition: min-height .2s ease-in-out;
-
 }
 .Nav_Navbar{
     max-height:100%;
@@ -268,10 +229,6 @@ li.Nav_MenuLogo {
 .Nav_MenuLogout{
     padding-bottom: 1rem;
 }
-/* button.Menu_button{
-    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.28);
-    clip-path: inset(0px 0px -3px -3px);
-} */
 .hidden {
     max-height:0;
     max-width:0;
@@ -577,6 +534,5 @@ li.Nav_MenuLogo {
         margin-top:2rem;
         min-width:60%;
         max-width:60%;
-    }
-    
+    }   
 }
