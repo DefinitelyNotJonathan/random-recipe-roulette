@@ -23,9 +23,7 @@ export default class SignUp extends React.Component {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(sendData),
         })
-        .then((res) => {
-            res.json();
-        })
+        .then((res) => res.json())
         .then((user) => {
             if (user && user.hasOwnProperty("id")) {
                 this.context.setUser({ id: user.id });
