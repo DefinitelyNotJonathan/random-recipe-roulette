@@ -47,7 +47,6 @@ export default class NewRecipe extends React.Component {
                 });
             } else { return response.json(); }
         })
-            // .then(res => res.json()) 
         .then((data) => {
             this.setState({
                 names: data,

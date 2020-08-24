@@ -44,11 +44,9 @@ ul{
 li{
     font-size:20px;
 }
-
 button, a.button {
   padding: 0.5rem 1rem;
   width: auto;
-  /* background: #45641f; */
   background: #108048;
   color: #fff;
   position: relative;
@@ -67,7 +65,6 @@ a.button{
     margin-bottom:1rem;
 }
 button.back::before, a.button.back::before {
-  /* content: url(./Images/backChevron.svg); */
   display: inline-block;
   position: relative;
   font-size: 1rem;
@@ -79,13 +76,8 @@ button.back:hover::before, a.button.back:hover::before {
   padding-right: 0.5rem;
   transition: padding-right .1s ease-in-out;
 }
-/* button.small, a.button.small {
-  padding: 0.2rem 0.5rem;
-  font-size:0.9rem;
-  haven't tested this one to see how it looks 
-} */
+
 button:hover, a.button:hover {
-    /* background: #55832c; */
   background: #17ac61;
   transition: all .2s ease-in-out;
 }
@@ -121,34 +113,10 @@ h2{
     }
 
 }
-@media screen and (min-width: 1024px){
-    label{
-        display:block;
-    }
-}
 @media screen and (min-width: 1200px){
-
-    h1{
-
+    label{
+        margin:.5rem .5rem;
     }
-    h2{
-    
-    }
-    h3{
-    
-    }
-    p{
-        
-    }
-}
-/*>>>>>>>>>>>>>>>>>>>>>>>>APP>>>>>>>>>>>>>>>>>>>*/
-
-.App_header {
-    display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
 }
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>NAVBAR>>>>>>>>>>>>>>>>>*/
@@ -159,8 +127,6 @@ h2{
     margin-right:auto;
     max-width:95%;
     margin-bottom:5rem;
-    /* border-style:solid;
-    border-width: .1px 0 0 0 ; */
     box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.28);
     max-height:4rem;
     top:0;
@@ -175,7 +141,6 @@ h2{
     min-height:8rem;
     max-height: none;
     transition: min-height .2s ease-in-out;
-
 }
 .Nav_Navbar{
     max-height:100%;
@@ -213,10 +178,6 @@ li.Nav_MenuLogo {
 .Nav_MenuLogout{
     padding-bottom: 1rem;
 }
-/* button.Menu_button{
-    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.28);
-    clip-path: inset(0px 0px -3px -3px);
-} */
 .hidden {
     max-height:0;
     max-width:0;
@@ -426,9 +387,6 @@ li.Nav_MenuLogo {
     body {
         min-height:100%;
     }
-    .SignUp_header {
-        font-size:30px;
-    }
     .App_header>h1 {
         font-size:52px;
     }
@@ -449,7 +407,8 @@ li.Nav_MenuLogo {
     .Nav_Container{
         background: linear-gradient(45deg, #ffd9af, #ffc066 );
         box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.28);
-        max-width:6rem;
+        min-width:16rem;
+        max-width:16rem;
         margin-left:0;
         margin-right:0;
         top:0;
@@ -459,14 +418,14 @@ li.Nav_MenuLogo {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        min-height:12rem;
-        max-height:12rem;
+        min-height:9rem;
+        max-height:9rem;
         margin-bottom: 0;
         margin-top:2rem;
     }
     .Nav_Container.active{
         min-height:10rem;
-        max-height:24rem;
+        max-height:26rem;
         min-width:16rem;
         max-width: none;
         transition: min-width .2s ease-in-out;
@@ -500,7 +459,7 @@ li.Nav_MenuLogo {
     li.Nav_MenuLogo {
         border-top:none;
         font-family:'Amatic SC', cursive;
-        font-size: 28px;
+        font-size: 38px;
         font-weight:bold;
         min-height:6rem;
         margin-top:.5rem;
@@ -511,6 +470,7 @@ li.Nav_MenuLogo {
     .Nav_Container.active li.Nav_MenuLogo {
         min-height:2rem;
         padding-top:.5rem;
+        font-size:38px;
     }
     .Nav_MenuName {
         font-weight:bold;
@@ -531,6 +491,5 @@ li.Nav_MenuLogo {
         margin-top:2rem;
         min-width:60%;
         max-width:60%;
-    }
-    
+    }   
 }

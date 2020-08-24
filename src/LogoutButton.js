@@ -20,6 +20,5 @@ export default class LogoutButton extends React.Component {
                 <Link onClick={this.handleLogout} to="/login" className="button">Logout</Link>
             </div>
         );
-
     }
 }
