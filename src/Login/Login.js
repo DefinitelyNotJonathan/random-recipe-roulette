@@ -83,6 +83,8 @@ export default class Login extends React.Component {
                     <Link to="/signup" className="Login_signup">Create an account</Link>
                 </form>
                 <br />
+
+                <p className="loginDescription">Tired of the same dinners every week? Ready to try something new? Welcome to Random Recipes! Login, and a new recipe will be waiting for you at the click of a button!</p>
             </div>
         );
     }

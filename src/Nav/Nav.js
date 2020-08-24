@@ -53,7 +53,7 @@ export default class HomeNav extends React.Component {
                     <button type="button" className="Menu_button" onClick={this.toggleActive}>{this.state.active ? "-" : "+"}</button>
                     <ul className="Nav_Menu">
                         <li className="Nav_MenuLogo">Random Recipes</li>
-                        <li className={`Nav_MenuName ${this.state.active ? "" : "hidden"}`}>{this.context.user.firstname}</li>
+                        {/* <li className={`Nav_MenuName ${this.state.active ? "" : "hidden"}`}>{this.context.user.firstname}</li> */}
                         <li className={`Nav_MenuLogout ${this.state.active ? "" : "hidden"}`}>
                             <Link onClick={this.handleLogout} to="/login" className="button">Logout</Link>
                         </li>

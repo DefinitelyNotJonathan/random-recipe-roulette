@@ -102,12 +102,6 @@ h2{
     font-family:'Amatic SC', cursive;
     font-size:34px;
 }
-h3{
-
-}
-p{
-    
-}
 
 @media screen and (min-width: 768px){
     label {
@@ -128,61 +122,12 @@ p{
 
 }
 @media screen and (min-width: 1024px){
-    form{
-        display:block;
-        margin:auto;
-        max-height:30%;
-        border-style: solid;
-        border-color: black;
-        border-width: 2px;
-        background-color: rgba(212, 225, 235, 0.842);
-    }
-    input{
-        display:block;
-        width:95%;
-        margin-left:auto;
-        margin-right:auto;
-        min-height:35px;
-    }
     label{
         display:block;
-    }
-    h1{
-
-    }
-    h2{
-    
-    }
-    h3{
-    
-    }
-    p{
-        
     }
 }
 @media screen and (min-width: 1200px){
-    form{
-        display:block;
-        margin:auto;
-        max-height:30%;
-        border-style: solid;
-        border-color: black;
-        border-width: 2px;
-        background-color: rgba(212, 225, 235, 0.842);
-    }
-    input{
-        display:block;
-        width:95%;
-        margin-left:auto;
-        margin-right:auto;
-        min-height:35px;
-    }
-    label{
-        display:block;
-        margin:.5rem .5rem;
-        max-height:5%;
-        font-size: 18px;
-    }
+
     h1{
 
     }
@@ -312,6 +257,17 @@ li.Nav_MenuLogo {
     max-height:10%;
     font-size:18px;
 }
+.loginDescription{
+    display:block;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+    background-color: rgba(212, 225, 235, 0.842);
+    margin:auto;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size:20px;
+    text-align:center;
+}
 /*>>>>>>>>>>>>>>>>>>>>>>>>SIGNUP>>>>>>>>>>>>>>>>>*/
 
 .SignUp_container {
@@ -434,7 +390,7 @@ li.Nav_MenuLogo {
     li.Nav_MenuName{
         font-size:28px;
     }
-    .NewRecipe_Comments{
+    .NewRecipe_Comments, .loginDescription{
         font-size:24px;
     }
     .NewRecipe_Button{
