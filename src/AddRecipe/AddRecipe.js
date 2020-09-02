@@ -56,9 +56,7 @@ export default class AddRecipe extends React.Component {
     }
 /* need:
 
-    how to add unit by unit ingredients and instructions with button
-
-    add Num() to strings that need to become numbers */
+    how to add unit by unit ingredients and instructions with button */
     render() {
         if (this.state.toLogin === true) {
             return <Redirect to='/login' />;

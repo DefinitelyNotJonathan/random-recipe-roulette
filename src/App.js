@@ -5,6 +5,7 @@ import Signup from './Signup/Signup';
 import Login from './Login/Login';
 import HomePage from './HomePage/Homepage';
 import NewRecipe from './NewRecipe/newRecipe';
+import AddRecipe from './AddRecipe/AddRecipe';
 import ApiContext from './ApiContext';
 import config from './config';
 import './App.css';
@@ -25,6 +26,7 @@ class App extends Component {
         <Route path="/login" component={Login}/>
         <Route path="/signup" component={Signup}/>
         <Route path="/newrecipe" component={NewRecipe}/>
+        <Route path="/addrecipe" component={AddRecipe}/>
       </Route>
     );
   }
