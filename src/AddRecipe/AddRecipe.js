@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import config from '../config';
-import Nav from '../Nav';
+import Nav from '../Nav/Nav';
 
 export default class AddRecipe extends React.Component {
 
