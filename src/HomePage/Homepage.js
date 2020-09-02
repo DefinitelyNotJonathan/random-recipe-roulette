@@ -46,9 +46,9 @@ export default class HomePage extends React.Component {
           <div className="NewRecipe_Link">
             <Link to="/newrecipe" className="button">Get A New Recipe!</Link>
           </div>
-          <div>
+          {/* <div>
             <Link to="/addrecipe" className="button">Have your own recipe to share? Add it here!</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     );
