@@ -59,21 +59,19 @@ export default class AddRecipe extends React.Component {
     addIngredient(e) {
         e.preventDefault();
         let targetCon=document.getElementById('ingredients');
-        targetCon.insertAdjacentHTML('beforeend', '<input class="recInput" id="recIngredients" value={this.state.ingredients} onChange={(e) => this.setState({ingredients: [e.target.value()]})} required></input>')
+        targetCon.insertAdjacentHTML('beforeend', '<input class="recInput" id="recIngredients" value={""} onChange={(e) => this.setState({ingredients: [...this.state.ingredients, String(e.target.value())]})} required></input>')
     }
     addInstruction(e) {
         e.preventDefault();
         let targetCon=document.getElementById('instructions');
-        targetCon.insertAdjacentHTML('beforeend', '<input class="recInput" value={this.state.instructions} onChange={(e) => this.setState({instructions: [e.target.value()]})} required></input>')
+        targetCon.insertAdjacentHTML('beforeend', '<input class="recInput" value={""} onChange={(e) => this.setState({instructions: [...this.state.instructions, String(e.target.value())]})} required></input>')
     }
     addTag(e) {
         e.preventDefault();
         let targetCon=document.getElementById('tags');
-        targetCon.insertAdjacentHTML('beforeend', '<input class="recInput" value={this.state.tags} onChange={(e) => this.setState({tags: [e.target.value()]})} required></input>')
+        targetCon.insertAdjacentHTML('beforeend', '<input class="recInput" value={""} onChange={(e) => this.setState({tags: [...this.state.tags, String(e.target.value())]})} required></input>')
     }
-/* need:
 
-    how to add unit by unit ingredients and instructions with button */
     render() {
         if (this.state.toLogin === true) {
             return <Redirect to='/login' />;
