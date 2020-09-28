@@ -57,6 +57,20 @@ export default class AddRecipe extends React.Component {
 
     how to add unit by unit ingredients and instructions with button */
     render() {
+
+        $(document).onClick('click', '.addIngredient', function(){
+            let html = '<input type="text" name="myInput">';
+          $(this).parent().append(html);
+        });
+        $(document).onClick('click', '.addInstruction', function(){
+            let html = '<input type="text" name="myInput">';
+          $(this).parent().append(html);
+        });
+        $(document).onClick('click', '.addTag', function(){
+            let html = '<input type="text" name="myInput">';
+          $(this).parent().append(html);
+        });
+
         if (this.state.toLogin === true) {
             return <Redirect to='/login' />;
           }
@@ -105,14 +119,23 @@ export default class AddRecipe extends React.Component {
                         <label htmlFor="recProtein">Recipe Protein</label>
                         <input class="recInput" id="recProtein" value={this.state.protein} onChange={(e) => this.setState({protein: Num(e.target.value())})}></input>
                         {/* instructions */}
-                        <label htmlFor="recInstructions" >Recipe Instructions</label>
-                        <input class="recInput" id="recInstructions" value={this.state.instructions} onChange={(e) => this.setState({instructions: [e.target.value()]})}required></input>
+                        <section>
+                            <button>add a step</button>
+                            <label htmlFor="recInstructions" >Recipe Instructions</label>
+                            <input class="recInput" id="recInstructions" value={this.state.instructions} onChange={(e) => this.setState({instructions: [e.target.value()]})}required></input>
+                        </section>
                         {/* ingredients */}
-                        <label htmlFor="recIngredients">Recipe Ingredients</label>
-                        <input class="recInput" id="recIngredients" value={this.state.ingredients} onChange={(e) => this.setState({ingredients: [e.target.value()]})} required></input>
+                        <section>
+                            <button class="addIngredient">add an ingredient</button>
+                            <label htmlFor="recIngredients">Recipe Ingredients</label>
+                            <input class="recInput" id="recIngredients" value={this.state.ingredients} onChange={(e) => this.setState({ingredients: [e.target.value()]})} required></input>
+                        </section>
                         {/* tags */}
-                        <label htmlFor="recTags">Recipe Tags</label>
-                        <input class="recInput" id="recTags" value={this.state.tags}></input>
+                        <section>
+                            <button>add a tag</button>
+                            <label htmlFor="recTags">Recipe Tags</label>
+                            <input class="recInput" id="recTags" value={this.state.tags}></input>
+                        </section>
                         <button>submit</button>
                     </form>
                 </main>
